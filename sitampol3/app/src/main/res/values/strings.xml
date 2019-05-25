@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SITAMPOL</string>
+    <string name="app_name">Sitampol</string>
     <string name="create_account"><font color="#00ff00">text</font></string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -7,4 +7,10 @@
     <string name="username">Username</string>
     <string name="register">Daftar</string>
     <string name="back_to_login">Kembali ke Login</string>
+    <string name="nama_pelanggan">Nama Pelanggan</string>
+    <string name="RT">RT</string>
+    <string name="RW">RW</string>
+    <string name="desa">Desa</string>
+    <string name="kecamatan">Kecamatan</string>
+    <string name="kota">Kota</string>
 </resources>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/blk"
+    android:fitsSystemWindows="true"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutNamaPelanggan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorAccent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextNamaPelanggan"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff"
+                android:hint="@string/nama_pelanggan" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            app:errorEnabled="true"
+            android:id="@+id/textInputLayoutUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextUserName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff"
+                android:hint="@string/username"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutDesa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextDesa"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff"
+                android:hint="@string/desa"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutKecamatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextKecamatan"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff"
+                android:hint="@string/kecamatan"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutKota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextKota"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff"
+                android:hint="@string/kota"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutrt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorAccent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextrt"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff"
+                android:hint="@string/RT" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutrw"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorAccent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextrw"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff"
+                android:hint="@string/RW" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorAccent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="@string/register" />
+
+        <TextView
+            android:id="@+id/textViewLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/back_to_login"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+    </LinearLayout>
+</ScrollView>
