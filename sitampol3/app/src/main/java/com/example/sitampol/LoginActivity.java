@@ -27,19 +27,20 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
     private EditText username,password;
     private Button btnLoggin;
+    private TextView bikinakun;
 
-    String url_login = "http://192.168.43.252/sitampol/api/login";
+    String url_login = "http://192.168.43.93/sitampol/api/login";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        BikinAkunTextView();
 
         username = findViewById(R.id.editTextEmail);
         password = findViewById(R.id.editTextPassword);
         btnLoggin = findViewById(R.id.buttonLogin);
+        bikinakun = findViewById(R.id.bikinakun);
 
         btnLoggin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,28 +48,17 @@ public class LoginActivity extends AppCompatActivity {
                 Login();
             }
         });
-    }
 
-    private void BikinAkunTextView() {
-        TextView bikinakun = (TextView) findViewById(R.id.bikinakun);
-        bikinakun.setText(fromHtml("<font color='#ffffff'>Belum mempunyai akun? </font><font color='#000000'>Daftar</font>"));
         bikinakun.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
     }
-    public static Spanned fromHtml(String html) {
-        Spanned result;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            result = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
-        } else {
-            result = Html.fromHtml(html);
-        }
-        return result;
-    }
+
+
 
     private void Login(){
         final String username_nya = username.getText().toString().trim();
@@ -81,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            System.out.println(jsonObject);
+                            System.out.println(response);
                             String response_login = jsonObject.getString("kode");
 
 

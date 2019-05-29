@@ -2,7 +2,6 @@ package com.example.sitampol;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,15 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText userName, Password, Nama_pelanggan, Desa, Kecamatan, Kota, Rt, Rw;
     private Button btnRegister;
     private String username, password, nama_pelanggan, desa, kecamatan, kota, rt, rw;
-    String url_register = "http://192.168.43.252/sitampol/api/register";
-    private static final String KEY_NAMA_USER = "nama_pelanggan";
-    private static final String KEY_USERNAME = "username";
-    private static final String KEY_PASSWORD = "password";
-    private static final String KEY_DESA = "desa";
-    private static final String KEY_KECAMATAN = "kecamatan";
-    private static final String KEY_KOTA = "kota";
-    private static final String KEY_RT = "rt";
-    private static final String KEY_RW = "rw";
+    String url_register = "http://192.168.43.93/sitampol/api/register";
 
 
     @Override
@@ -64,51 +55,12 @@ public class RegisterActivity extends AppCompatActivity {
                 rt = Rt.getText().toString().trim();
                 rw = Rw.getText().toString().trim();
 
-                if (validateInputs()) {
-                    registerUser();
-                }
+                registerUser();
+
             }
         });
     }
 
-    private boolean validateInputs() {
-        //first we will do the validations
-        if (TextUtils.isEmpty(username)) {
-            userName.setError("Masukkan username Anda !");
-            userName.requestFocus();
-            return false;
-        } else if (TextUtils.isEmpty(password)) {
-            Password.setError("Masukkan password Anda !");
-            Password.requestFocus();
-            return false;
-        } else if (TextUtils.isEmpty(nama_pelanggan)) {
-            Nama_pelanggan.setError("Masukkan nama Anda !");
-            Nama_pelanggan.requestFocus();
-            return false;
-        } else if (TextUtils.isEmpty(desa)) {
-            Desa.setError("Masukkan desa Anda !");
-            Desa.requestFocus();
-            return false;
-        } else if (TextUtils.isEmpty(kecamatan)) {
-            Kecamatan.setError("Masukkan kecamatan Anda !");
-            Kecamatan.requestFocus();
-            return false;
-        } else if (TextUtils.isEmpty(kota)) {
-            Kota.setError("Masukkan kota Anda !");
-            Kota.requestFocus();
-            return false;
-        } else if (TextUtils.isEmpty(rt)) {
-            Rt.setError("Masukkan rt Anda !");
-            Rt.requestFocus();
-            return false;
-        } else if (TextUtils.isEmpty(rw)) {
-            Rw.setError("Masukkan rw Anda !");
-            Rw.requestFocus();
-            return false;
-        } else {
-            return true;
-        }
-    }
 
     //membuat string request
 
@@ -120,17 +72,17 @@ public class RegisterActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             System.out.println(jsonObject);
-                            String response_login = jsonObject.getString("kode");
+                            String response_login = jsonObject.getString("status");
 
 
+                            if (response_login.equals("0")) {
+                                Toast.makeText(RegisterActivity.this, "username sudah pernah dipakai", Toast.LENGTH_SHORT).show();
+                            }
                             if (response_login.equals("1")) {
-                                Toast.makeText(RegisterActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "registrasi gagal!", Toast.LENGTH_SHORT).show();
                             }
                             if (response_login.equals("2")) {
-                                Toast.makeText(RegisterActivity.this, "Password Anda Salah!", Toast.LENGTH_SHORT).show();
-                            }
-                            if (response_login.equals("3")) {
-                                Toast.makeText(RegisterActivity.this, "Anda Belum Mendaftar, Silahkan Daftar dulu!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Registrasi berhasil", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
